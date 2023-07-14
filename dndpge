@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Infrastructure as Code Tool</title>
+  <style>
+    .resource {
+      width: 100px;
+      height: 50px;
+      background-color: lightgray;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .canvas {
+      width: 400px;
+      height: 300px;
+      background-color: white;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Infrastructure as Code Tool</h1>
+  
+  <div class="resource" draggable="true" id="vm">
+    Virtual Machine
+  </div>
+  
+  <div class="resource" draggable="true" id="lb">
+    Load Balancer
+  </div>
+  
+  <div class="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Canvas</h3>
+  </div>
+  
+  <script>
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+    
+    function drag(event) {
+      event.dataTransfer.setData("text/plain", event.target.id);
+    }
+    
+    function drop(event) {
+      event.preventDefault();
+      var resourceId = event.dataTransfer.getData("text/plain");
+      var resource = document.getElementById(resourceId);
+      var canvas = event.target;
+      canvas.appendChild(resource);
+      
+      // Generate connectivity code based on the dropped resource
+      var code = generateConnectivityCode(resourceId);
+      console.log(code);
+    }
+    
+    function generateConnectivityCode(resourceId) {
+      switch (resourceId) {
+        case "vm":
+          return "Code for deploying a Virtual Machine";
+        case "lb":
+          return "Code for deploying a Load Balancer";
+        // Add more cases for other resources
+        default:
+          return "Unknown resource";
+      }
+    }
+  </script>
+</body>
+</html>
