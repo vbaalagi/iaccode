@@ -31,7 +31,7 @@
   </div>
   
   <div class="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h3>Canvas</h3>
+    <h3>Here You to Need to Drop the Resource</h3>
   </div>
   
   <script>
