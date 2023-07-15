@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<body style="background-color:orange;">
   <title>Infrastructure as Code Tool</title>
   <style>
     .resource {
