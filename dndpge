@@ -21,7 +21,11 @@
 </head>
 <body>
   <h1>Infrastructure as Code Tool</h1>
-  
+
+  <div class="resource" draggable="true" id="vnet">
+    Virtual Network
+  </div>
+
   <div class="resource" draggable="true" id="vm">
     Virtual Machine
   </div>
@@ -61,6 +65,8 @@
           return "Code for deploying a Virtual Machine";
         case "lb":
           return "Code for deploying a Load Balancer";
+        case "vnet";
+          return "Codefor deploying a Vitual Network"
         // Add more cases for other resources
         default:
           return "Unknown resource";
